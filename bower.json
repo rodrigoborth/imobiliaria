@@ -1,0 +1,11 @@
+{
+  "name": "imobiliaria",
+  "version": "0.1.0",
+  "dependencies": {
+    "components-font-awesome": "^4.7.0",
+    "flat-ui": "^2.3.0",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "normalize-css": "^7.0.0"
+  }
+}

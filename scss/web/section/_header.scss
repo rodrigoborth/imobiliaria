@@ -1,0 +1,42 @@
+header{
+  .navbar-default {
+    background-color: $white70;
+
+    .navbar-brand {
+      color: $linkFontColor1;
+      &:focus {
+        color: $linkFontColor1;
+      }
+      &:hover {
+        color: $linkHoverFontColor1;
+        background-color: $linkBgColor2;
+      }
+    }
+    .navbar-nav>li>a {
+      color: $linkFontColor1;
+      &:focus {
+        color: $linkFontColor1;
+      }
+      &:hover {
+        color: $linkHoverFontColor1;
+        background-color: $linkBgColor2;
+      }
+    }
+    .navbar-nav>li.active>a {
+      color: $linkFontColor2;
+      background-color: $linkBgColor2;
+      &:hover {
+        color: $linkHoverFontColor1;
+        background-color: $linkBgColor2;
+      }
+    }
+    .navbar-form {
+      .input-group.focus {
+        input.form-control, span.input-group-btn>button.btn {
+          color: $textFontColor1;
+          border-color: $buttonBorderColor1;
+        }
+      }
+    }
+  }
+}

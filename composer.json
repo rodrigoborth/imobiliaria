@@ -1,0 +1,17 @@
+{
+  "name": "imobiliaria/imobiliaria",
+  "description": "Website modelo para imobiliaria",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Rodrigo Borth",
+      "email": "rodrigojborth@gmail.com"
+    }
+  ],
+  "require": {
+    "mailgun/mailgun-php": "^2.3",
+    "doctrine/dbal": "^2.5",
+    "auth0/auth0-php": "~5.0"
+  }
+}
