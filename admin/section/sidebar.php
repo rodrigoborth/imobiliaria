@@ -21,9 +21,9 @@
           <i class="fa fa-home fa-lg"></i> Imóveis
         </a>
       </li>
-      <li <?php if($page=='owners'): ?>class="active"<?php endif;?> >
-        <a href="/admin/owners">
-          <i class="fa fa-key fa-lg"></i> Proprietários
+      <li <?php if($page=='clients'): ?>class="active"<?php endif;?> >
+        <a href="/admin/clients">
+          <i class="fa fa-user fa-lg"></i> Clientes
         </a>
       </li>
       <li <?php if($page=='interested'): ?>class="active"<?php endif;?> >
