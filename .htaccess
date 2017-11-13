@@ -5,8 +5,7 @@ Options -Indexes
 Options +FollowSymLinks
 <IfModule mod_rewrite.c>
   RewriteEngine on
+  RewriteRule ^admin - [L,NC]
   RewriteRule ^/?$ web/page/home.php [NC,L,QSA]
-  RewriteRule ^admin/?$ admin/page/home.php [NC,L,QSA]
-  RewriteRule ^admin/([a-z-]+)/?$ admin/page/$1.php [NC]
   RewriteRule ^([a-z-]+)/?$ web/page/$1.php [NC]
 </IfModule>
