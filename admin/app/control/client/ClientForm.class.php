@@ -21,12 +21,43 @@ class ClientForm extends TStandardForm
     $name = new TEntry('name');
     $cpf   = new TEntry('cpf');
     $rg   = new TEntry('rg');
-    $state   = new TEntry('state');
+    $state   = new TCombo('state');
     $city   = new TEntry('city');
     $district   = new TEntry('district');
     $street   = new TEntry('street');
     $number   = new TEntry('number');
     $complement   = new TEntry('complement');
+
+    $stateList = array(
+      'AC'=>'Acre',
+      'AL'=>'Alagoas',
+      'AP'=>'Amapá',
+      'AM'=>'Amazonas',
+      'BA'=>'Bahia',
+      'CE'=>'Ceará',
+      'DF'=>'Distrito Federal',
+      'ES'=>'Espírito Santo',
+      'GO'=>'Goiás',
+      'MA'=>'Maranhão',
+      'MT'=>'Mato Grosso',
+      'MS'=>'Mato Grosso do Sul',
+      'MG'=>'Minas Gerais',
+      'PA'=>'Pará',
+      'PB'=>'Paraíba',
+      'PR'=>'Paraná',
+      'PE'=>'Pernambuco',
+      'PI'=>'Piauí',
+      'RJ'=>'Rio de Janeiro',
+      'RN'=>'Rio Grande do Norte',
+      'RS'=>'Rio Grande do Sul',
+      'RO'=>'Rondônia',
+      'RR'=>'Roraima',
+      'SC'=>'Santa Catarina',
+      'SP'=>'São Paulo',
+      'SE'=>'Sergipe',
+      'TO'=>'Tocantins'
+    );
+    $state->addItems($stateList);
 
     $this->form->addFields( [new TLabel(_t('Name'))], [$name]);
     $this->form->addFields( [new TLabel('CPF')], [$cpf]);
@@ -47,28 +78,5 @@ class ClientForm extends TStandardForm
     $vbox->add(new TXMLBreadCrumb('menu.xml', __CLASS__));
     $vbox->add($this->form);
     parent::add($vbox);
-  }
-  function onSave()
-  {
-    try
-    {
-      // open a transaction with database 'samples'
-      TTransaction::open('sample');
-
-      $this->form->validate(); // run form validation
-
-      TTransaction::close();  // close the transaction
-
-      // shows the success message
-      new TMessage('info', 'Record saved');
-      // reload the listing
-    }
-    catch (Exception $e) // in case of exception
-    {
-      // shows the exception error message
-      new TMessage('error', $e->getMessage());
-      // undo all pending operations
-      TTransaction::rollback();
-    }
   }
 }
