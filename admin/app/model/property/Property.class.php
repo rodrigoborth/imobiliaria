@@ -5,12 +5,6 @@
  * Date: 11/11/17
  * Time: 14:39
  */
-
-namespace admin\app\model\property;
-
-
-use Adianti\Database\TRecord;
-
 class Property extends TRecord
 {
   const TABLENAME = 'property';

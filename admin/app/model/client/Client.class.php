@@ -6,9 +6,6 @@
  * Time: 14:56
  */
 
-namespace admin\app\model\client;
-
-
 class Client extends TRecord
 {
   const TABLENAME = 'client';
