@@ -87,16 +87,7 @@
         
     <menuitem label='_t{Client}'>
       <icon>fa:user fa-fw</icon>
-        <menu>
-            <menuitem label='_t{List}'>
-              <icon>fa:user fa-fw</icon>
-                <action>ClientList</action>
-            </menuitem>
-            <menuitem label='_t{New}'>
-              <icon>fa:user fa-fw</icon>
-                <action>ClientForm</action>
-            </menuitem>
-        </menu>
+      <action>ClientList</action>
     </menuitem>
 
     <menuitem label='_t{Properties}'>

@@ -236,6 +236,8 @@ class ApplicationTranslator
         $this->messages['en'][] = 'Street';
         $this->messages['en'][] = 'Number';
         $this->messages['en'][] = 'Complement';
+        $this->messages['en'][] = 'Contact';
+        $this->messages['en'][] = 'Client info';
 
         $this->messages['pt'][] = 'Arquivo não encontrado';
         $this->messages['pt'][] = 'Buscar';
@@ -453,6 +455,8 @@ class ApplicationTranslator
         $this->messages['pt'][] = 'Rua';
         $this->messages['pt'][] = 'Número';
         $this->messages['pt'][] = 'Complemento';
+        $this->messages['pt'][] = 'Contato';
+        $this->messages['pt'][] = 'Informações do cliente';
 
         $this->enWords = [];
         foreach ($this->messages['en'] as $key => $value)

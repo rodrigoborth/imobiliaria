@@ -18,6 +18,8 @@ class Client extends TRecord
     parent::addAttribute('name');
     parent::addAttribute('cpf');
     parent::addAttribute('rg');
+    parent::addAttribute('contact');
+    parent::addAttribute('email');
     parent::addAttribute('state');
     parent::addAttribute('city');
     parent::addAttribute('district');

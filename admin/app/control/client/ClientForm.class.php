@@ -9,6 +9,7 @@
 class ClientForm extends TPage
 {
   protected $form; // form
+  protected $step; // step
 
   function __construct()
   {
@@ -19,9 +20,12 @@ class ClientForm extends TPage
     $this->form->setFormTitle( _t('Client') );
 
     // create the form fields
+    $id = new TEntry('id');
+    $id->setEditable(false);
     $name = new TEntry('name');
     $cpf   = new TEntry('cpf');
     $rg   = new TEntry('rg');
+    $contact   = new TEntry('contact');
     $email   = new TEntry('email');
     $state   = new TCombo('state');
     $city   = new TEntry('city');
@@ -63,14 +67,21 @@ class ClientForm extends TPage
 
     //add mask script
     $cpf->id='cpf';
+    $contact->id='contact';
     $script =new TElement('script');
     $script->type = 'text/javascript';
-    $script->add('$(\'#cpf\').mask(\'000.000.000-00\', {placeholder: "___.___.___-__"});');
+    $script->add('
+      $(\'#cpf\').mask(\'000.000.000-00\', {placeholder: "___.___.___-__"});
+      $(\'#contact\').mask(\'(00) 000-000-000\', {placeholder: "(__) ___-___-___"});
+    ');
 
     //Add form fields
+    $this->form->addFields( [new TLabel('ID')], [$id]);
+    $id->setSize('30%');
     $this->form->addFields( [new TLabel(_t('Name'))], [$name]);
     $this->form->addFields( [new TLabel('CPF')], [$cpf]);
     $this->form->addFields( [new TLabel('RG')], [$rg]);
+    $this->form->addFields( [new TLabel(_t('Contact'))], [$contact]);
     $this->form->addFields( [new TLabel('E-mail')], [$email]);
     $this->form->addFields( [new TLabel(_t('State'))], [$state]);
     $this->form->addFields( [new TLabel(_t('City'))], [$city]);
@@ -79,16 +90,32 @@ class ClientForm extends TPage
     $this->form->addFields( [new TLabel(_t('Number'))], [$number]);
     $this->form->addFields( [new TLabel(_t('Complement'))], [$complement]);
     //Add form validation
-    $cpf->addValidation('cpf', new TCPFValidator);
+    $name->addValidation(_t('Name'), new TRequiredValidator);
+    $cpf->addValidation('CPF', new TCPFValidator);
+    $rg->addValidation('RG', new TRequiredValidator);
+    $contact->addValidation(_t('Contact'), new TRequiredValidator);
+    $email->addValidation('E-mail', new TEmailValidator);
+    $state->addValidation(_t('State'), new TRequiredValidator);
+    $city->addValidation(_t('City'), new TRequiredValidator);
+    $district->addValidation(_t('District'), new TRequiredValidator);
+    $street->addValidation(_t('Street'), new TRequiredValidator);
+    $number->addValidation(_t('Number'), new TRequiredValidator);
+    $complement->addValidation(_t('Complement'), new TRequiredValidator);
 
     $btn = $this->form->addAction( _t('Save'), new TAction(array($this, 'onSave')), 'fa:floppy-o' );
     $btn->class = 'btn btn-sm btn-primary';
     $this->form->addAction( _t('Clear'), new TAction(array($this, 'onEdit')),  'fa:eraser red' );
+    $this->form->addAction( _t('Back'), new TAction(array('ClientList','onReload')), 'fa:arrow-circle-o-left blue');
 
+    //Add breadcrumb
+    $this->step = new TBreadCrumb;
+    $this->step->addItem('<a class="bread" generator="adianti" href="engine.php" title="" data-original-title="Home"><span>h</span></a>', FALSE);
+    $this->step->addItem(_t('Client'), FALSE);
+    $this->step->addItem(_t('New'), TRUE);
     // wrap the page content using vertical box
     $vbox = new TVBox;
     $vbox->style='width:100%';
-    $vbox->add(new TXMLBreadCrumb('menu.xml', __CLASS__));
+    $vbox->add($this->step);
     $vbox->add($this->form);
     $vbox->add($script);
     parent::add($vbox);
@@ -161,5 +188,8 @@ class ClientForm extends TPage
       // undo all pending operations
       TTransaction::rollback();
     }
+  }
+  function onBack(){
+
   }
 }

@@ -28,6 +28,6 @@ class Property extends TRecord
     parent::addAttribute('parking_space');
     parent::addAttribute('goal');
     parent::addAttribute('type');
-    parent::addAttribute('client');
+    parent::addAttribute('client_id');
   }
 }
