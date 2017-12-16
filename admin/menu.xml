@@ -85,23 +85,14 @@
         </menu>
     </menuitem>
         
-    <menuitem label='_t{Client}'>
+    <menuitem label='_t{Clients}'>
       <icon>fa:user fa-fw</icon>
       <action>ClientList</action>
     </menuitem>
 
     <menuitem label='_t{Properties}'>
-      <icon>fa:sign-out fa-fw</icon>
-        <menu>
-            <menuitem label='_t{List}'>
-              <icon>fa:sign-out fa-fw</icon>
-                <action>PropertiyList</action>
-            </menuitem>
-            <menuitem label='_t{Add}'>
-              <icon>fa:sign-out fa-fw</icon>
-                <action>PropertiyForm</action>
-            </menuitem>
-        </menu>
+      <icon>fa:building fa-fw</icon>
+      <action>PropertyList</action>
     </menuitem>
     
     <menuitem label='Logout'>

@@ -230,6 +230,9 @@ class ApplicationTranslator
         $this->messages['en'][] = 'Page';
         $this->messages['en'][] = 'Connection failed';
         $this->messages['en'][] = 'Client';
+        $this->messages['en'][] = 'Clients';
+        $this->messages['en'][] = 'Property';
+        $this->messages['en'][] = 'Properties';
         $this->messages['en'][] = 'State';
         $this->messages['en'][] = 'City';
         $this->messages['en'][] = 'District';
@@ -449,6 +452,9 @@ class ApplicationTranslator
         $this->messages['pt'][] = 'Página';
         $this->messages['pt'][] = 'Falhas na conexão';
         $this->messages['pt'][] = 'Cliente';
+        $this->messages['pt'][] = 'Clientes';
+        $this->messages['pt'][] = 'Imóvel';
+        $this->messages['pt'][] = 'Imóveis';
         $this->messages['pt'][] = 'Estado';
         $this->messages['pt'][] = 'Cidade';
         $this->messages['pt'][] = 'Bairro';
